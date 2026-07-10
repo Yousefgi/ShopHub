@@ -1,0 +1,17 @@
+bin/
+obj/
+
+.vs/
+.vscode/
+
+*.user
+*.suo
+
+.env
+
+node_modules/
+
+TestResults/
+
+*.db
+*.log
