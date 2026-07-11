@@ -1,0 +1,17 @@
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  discountPercentage: number;
+  finalPrice: number;
+  imageUrl: string | null;
+  categoryName: string;
+}
+
+export interface PaginatedResponse<T> {
+  items: T[];
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  totalPages: number;
+}

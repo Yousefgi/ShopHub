@@ -15,3 +15,6 @@ TestResults/
 
 *.db
 *.log
+
+.env.*
+!.env.example
