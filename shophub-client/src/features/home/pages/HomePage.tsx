@@ -1,8 +1,22 @@
+import Hero from "../../../components/home/Hero";
+import FeaturesSection from "../../../components/home/FeaturesSection";
+import FeaturedProducts from "../../../components/home/FeaturedProducts";
+import CategoriesSection from "../../../components/home/CategoriesSection";
+import Newsletter from "../../../components/home/Newsletter";
+
 function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-100">
-      <h1 className="text-5xl font-bold text-blue-600">Welcome to ShopHub</h1>
-    </div>
+    <>
+      <Hero />
+
+      <FeaturesSection />
+
+      <FeaturedProducts />
+
+      <CategoriesSection />
+
+      <Newsletter />
+    </>
   );
 }
 
