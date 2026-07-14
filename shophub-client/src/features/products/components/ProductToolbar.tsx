@@ -1,11 +1,27 @@
 import { Search } from "lucide-react";
-
+import Button from "../../../components/ui/Button";
 interface ProductToolbarProps {
   search: string;
   onSearchChange: (value: string) => void;
-}
 
-function ProductToolbar({ search, onSearchChange }: ProductToolbarProps) {
+  sortBy: string;
+  onSortChange: (value: string) => void;
+
+  onClearFilters: () => void;
+}
+function ProductToolbar({
+  search,
+  onSearchChange,
+  sortBy,
+  onSortChange,
+  onClearFilters,
+}: ProductToolbarProps) {
+  const handleClearFilters = () => {
+    setSearch("");
+    setCategory("");
+    setSortBy("");
+    setPage(1);
+  };
   return (
     <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div>
@@ -28,12 +44,20 @@ function ProductToolbar({ search, onSearchChange }: ProductToolbarProps) {
           className="w-full rounded-xl border border-slate-300 py-3 pl-10 pr-4 outline-none transition focus:border-blue-500"
         />
       </div>
-      <select className="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-500">
-        <option value="">Sort By</option>
-        <option value="name">Name (A-Z)</option>
-        <option value="priceAsc">Price: Low to High</option>
-        <option value="priceDesc">Price: High to Low</option>
+      <select
+        value={sortBy}
+        onChange={(e) => onSortChange(e.target.value)}
+        className="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-500"
+      >
+        <option value="">Default</option>
+        <option value="name-asc">Name (A-Z)</option>
+        <option value="name-desc">Name (Z-A)</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
       </select>
+      <Button variant="outline" onClick={onClearFilters}>
+        Clear Filters
+      </Button>
     </div>
   );
 }
