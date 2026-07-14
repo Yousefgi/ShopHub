@@ -1,39 +1,33 @@
-import ProductCardSkeleton from "../../../components/product/ProductCardSkeleton";
-import ProductCard from "../../../components/product/ProductCard";
+import { useState } from "react";
 
-import { useProducts } from "../../../hooks/useProducts";
+import Container from "../../../components/ui/Container";
+import ProductToolbar from "../components/ProductToolbar";
+import ProductGrid from "../components/ProductGrid";
+import ProductSidebar from "../components/ProductSidebar";
+
+import { useDebounce } from "../../../hooks/useDebounce";
 
 function ProductsPage() {
-  const { data, isLoading, isError } = useProducts();
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
 
-  if (isLoading) {
-    return (
-      <section className="mx-auto max-w-7xl px-4 py-10">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <ProductCardSkeleton key={index} />
-          ))}
-        </div>
-      </section>
-    );
-  }
-  if (isError) {
-    return (
-      <div className="py-10 text-center text-red-600">
-        Failed to load products.
-      </div>
-    );
-  }
+  const debouncedSearch = useDebounce(search);
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-10">
-      <h1 className="mb-8 text-3xl font-bold">Products</h1>
+    <section className="py-10">
+      <Container>
+        <ProductToolbar search={search} onSearchChange={setSearch} />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {data?.items.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+        <div className="grid gap-8 lg:grid-cols-4">
+          <ProductSidebar
+            selectedCategory={category}
+            onCategoryChange={setCategory}
+          />
+          <div className="lg:col-span-3">
+            <ProductGrid search={debouncedSearch} category={category} />
+          </div>
+        </div>
+      </Container>
     </section>
   );
 }

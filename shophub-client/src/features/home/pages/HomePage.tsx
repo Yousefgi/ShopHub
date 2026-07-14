@@ -1,8 +1,8 @@
-import Hero from "../../../components/home/Hero";
-import FeaturesSection from "../../../components/home/FeaturesSection";
-import FeaturedProducts from "../../../components/home/FeaturedProducts";
-import CategoriesSection from "../../../components/home/CategoriesSection";
-import Newsletter from "../../../components/home/Newsletter";
+import Hero from "../components/Hero";
+import FeaturesSection from "../components/FeaturesSection";
+import FeaturedProducts from "../components/FeaturedProducts";
+import CategoriesSection from "../components/CategoriesSection";
+import Newsletter from "../components/Newsletter";
 
 function HomePage() {
   return (

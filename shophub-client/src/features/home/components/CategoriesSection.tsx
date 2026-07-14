@@ -1,10 +1,10 @@
 import { Laptop, Shirt, House, BookOpen } from "lucide-react";
 import CategorySkeleton from "./CategorySkeleton";
-import Container from "../ui/Container";
+import Container from "../../../components/ui/Container";
 import CategoryCard from "./CategoryCard";
-import ErrorState from "../ui/ErrorState";
-import EmptyState from "../ui/EmptyState";
-import { useCategories } from "../../hooks/useCategories";
+import ErrorState from "../../../components/ui/ErrorState";
+import EmptyState from "../../../components/ui/EmptyState";
+import { useCategories } from "../../../hooks/useCategories";
 
 const icons = [
   <Laptop size={30} />,

@@ -29,11 +29,13 @@ public class ProductService : IProductService
                 StringComparison.OrdinalIgnoreCase));
         }
 
-        if (!string.IsNullOrWhiteSpace(query.Brand))
+        if (!string.IsNullOrWhiteSpace(query.Category))
         {
             products = products.Where(p =>
-                p.Brand.Equals(query.Brand,
-                StringComparison.OrdinalIgnoreCase));
+                p.Category != null &&
+                p.Category.Name.Equals(
+                    query.Category,
+                    StringComparison.OrdinalIgnoreCase));
         }
 
         if (!string.IsNullOrWhiteSpace(query.SortBy))

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-import Container from "../ui/Container";
-import Button from "../ui/Button";
-import ProductCard from "../product/ProductCard";
-import ErrorState from "../ui/ErrorState";
-import EmptyState from "../ui/EmptyState";
-import { useProducts } from "../../hooks/useProducts";
-import ProductCardSkeleton from "../../components/product/ProductCardSkeleton";
+import Container from "../../../components/ui/Container";
+import Button from "../../../components/ui/Button";
+import ProductCard from "../../../components/product/ProductCard";
+import ErrorState from "../../../components/ui/ErrorState";
+import EmptyState from "../../../components/ui/EmptyState";
+import { useProducts } from "../../../hooks/useProducts";
+import ProductCardSkeleton from "../../../components/product/ProductCardSkeleton";
 
 function FeaturedProducts() {
   const { data, isLoading, isError, refetch } = useProducts();

@@ -1,6 +1,6 @@
 import { ShieldCheck, Truck, Star } from "lucide-react";
 
-import Container from "../ui/Container";
+import Container from "../../../components/ui/Container";
 import FeatureCard from "./FeatureCard";
 
 const features = [

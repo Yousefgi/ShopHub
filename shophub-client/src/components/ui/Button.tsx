@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "danger";
+  variant?: "primary" | "secondary" | "outline" | "danger" | "ghost";
 }
 
 function Button({
@@ -12,7 +12,7 @@ function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "rounded-lg px-4 py-2 font-medium transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50";
+    "inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50";
 
   const variants = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
@@ -23,6 +23,9 @@ function Button({
       "border border-slate-300 bg-white text-slate-900 hover:bg-slate-100",
 
     danger: "bg-red-600 text-white hover:bg-red-700",
+
+    ghost:
+      "bg-transparent text-slate-700 hover:bg-slate-100 hover:text-blue-600",
   };
 
   return (

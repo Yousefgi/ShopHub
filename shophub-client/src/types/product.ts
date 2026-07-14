@@ -15,3 +15,12 @@ export interface PaginatedResponse<T> {
   totalCount: number;
   totalPages: number;
 }
+
+export interface ProductQueryParams {
+  search?: string;
+  sortBy?: string;
+  desc?: boolean;
+  page?: number;
+  pageSize?: number;
+  category?: string;
+}
