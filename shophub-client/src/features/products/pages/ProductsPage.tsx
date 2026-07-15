@@ -7,7 +7,7 @@ import { useDebounce } from "../../../hooks/useDebounce";
 
 function ProductsPage() {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
   const [page, setPage] = useState(1);
   const [sortBy, setSortBy] = useState("");
   const debouncedSearch = useDebounce(search);
@@ -37,8 +37,8 @@ function ProductsPage() {
     setPage(1);
   };
 
-  const handleCategoryChange = (value: string) => {
-    setCategory(value);
+  const handleBrandChange = (value: string) => {
+    setBrand(value);
     setPage(1);
   };
   const handleSortChange = (value: string) => {
@@ -48,7 +48,7 @@ function ProductsPage() {
 
   const handleClearFilters = () => {
     setSearch("");
-    setCategory("");
+    setBrand("");
     setSortBy("");
     setPage(1);
   };
@@ -66,13 +66,13 @@ function ProductsPage() {
 
         <div className="grid gap-8 lg:grid-cols-4">
           <ProductSidebar
-            selectedCategory={category}
-            onCategoryChange={handleCategoryChange}
+            selectedBrand={brand}
+            onBrandChange={handleBrandChange}
           />
           <div className="lg:col-span-3">
             <ProductGrid
               search={debouncedSearch}
-              category={category}
+              brand={brand}
               sortBy={sortConfig.sortBy}
               desc={sortConfig.desc}
               page={page}

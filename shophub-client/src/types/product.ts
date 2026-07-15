@@ -18,9 +18,22 @@ export interface PaginatedResponse<T> {
 
 export interface ProductQueryParams {
   search?: string;
+  brand?: string;
   sortBy?: string;
   desc?: boolean;
   page?: number;
   pageSize?: number;
-  category?: string;
+}
+
+export interface ProductDetails {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  finalPrice: number;
+  stockQuantity: number;
+  imageUrl: string | null;
+  categoryName: string;
+  brand: string;
 }

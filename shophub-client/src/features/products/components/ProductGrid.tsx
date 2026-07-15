@@ -9,7 +9,7 @@ import { useProducts } from "../../../hooks/useProducts";
 
 interface ProductGridProps {
   search: string;
-  category: string;
+  brand: string;
   sortBy: string;
   desc: boolean;
 
@@ -19,7 +19,7 @@ interface ProductGridProps {
 
 function ProductGrid({
   search,
-  category,
+  brand,
   sortBy,
   desc,
   page,
@@ -27,7 +27,7 @@ function ProductGrid({
 }: ProductGridProps) {
   const { data, isLoading, isError, refetch } = useProducts({
     search,
-    category,
+    brand,
     sortBy,
     desc,
     page,

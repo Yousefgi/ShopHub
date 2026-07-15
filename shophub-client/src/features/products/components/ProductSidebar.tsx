@@ -2,13 +2,10 @@ import { useCategories } from "../../../hooks/useCategories";
 import Button from "../../../components/ui/Button";
 
 interface ProductSidebarProps {
-  selectedCategory: string;
-  onCategoryChange: (category: string) => void;
+  selectedBrand: string;
+  onBrandChange: (category: string) => void;
 }
-function ProductSidebar({
-  selectedCategory,
-  onCategoryChange,
-}: ProductSidebarProps) {
+function ProductSidebar({ selectedBrand, onBrandChange }: ProductSidebarProps) {
   const { data: categories, isLoading } = useCategories();
 
   return (
@@ -21,9 +18,9 @@ function ProductSidebar({
         <ul className="space-y-3">
           <li>
             <Button
-              variant={selectedCategory === "" ? "primary" : "ghost"}
+              variant={selectedBrand === "" ? "primary" : "ghost"}
               className="w-full justify-start"
-              onClick={() => onCategoryChange("")}
+              onClick={() => onBrandChange("")}
             >
               All Products
             </Button>
@@ -32,11 +29,9 @@ function ProductSidebar({
           {categories?.map((category) => (
             <li key={category.id}>
               <Button
-                variant={
-                  selectedCategory === category.name ? "primary" : "ghost"
-                }
+                variant={selectedBrand === category.name ? "primary" : "ghost"}
                 className="w-full justify-start"
-                onClick={() => onCategoryChange(category.name)}
+                onClick={() => onBrandChange(category.name)}
               >
                 {category.name}
               </Button>

@@ -4,7 +4,7 @@ import Badge from "../ui/Badge";
 
 import type { Product } from "../../types/product";
 import placeholderImage from "../../assets/images/placeholder.jpg";
-
+import { Link } from "react-router-dom";
 interface ProductCardProps {
   product: Product;
 }
@@ -44,10 +44,11 @@ function ProductCard({ product }: ProductCardProps) {
             {product.discountPercentage}% OFF
           </Badge>
         )}
-
-        <Button className="mt-auto w-full rounded-xl transition-all duration-300">
-          View Product
-        </Button>
+        <Link to={`/products/${product.id}`}>
+          <Button className="mt-auto w-full rounded-xl transition-all duration-300">
+            View Product
+          </Button>
+        </Link>
       </div>
     </Card>
   );
