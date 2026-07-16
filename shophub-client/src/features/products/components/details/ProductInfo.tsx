@@ -6,16 +6,18 @@ import QuantitySelector from "./QuantitySelector";
 
 import type { ProductDetails } from "../../../../types/product";
 import Badge from "../../../../components/ui/Badge";
+import { useCartStore } from "../../../cart/store/cart.store";
 
 import { ShoppingCart } from "lucide-react";
 import { Star } from "lucide-react";
-
+import { toast } from "sonner";
 interface ProductInfoProps {
   product: ProductDetails;
 }
 
 function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = useState(1);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div>
@@ -92,9 +94,17 @@ function ProductInfo({ product }: ProductInfoProps) {
       <p className="mt-4 text-sm text-slate-500">
         {product.stockQuantity} items available
       </p>
-      <Button className="mt-8 flex w-full items-center justify-center gap-2 py-4 text-lg">
+      <Button
+        disabled={product.stockQuantity === 0}
+        onClick={() => {
+          addToCart(product, quantity);
+
+          toast.success(`${product.name} added to cart.`);
+        }}
+        className="mt-8 flex w-full items-center justify-center gap-2 py-4 text-lg"
+      >
         <ShoppingCart size={18} />
-        Add To Cart
+        {product.stockQuantity > 0 ? "Add To Cart" : "Out of Stock"}
       </Button>
     </div>
   );

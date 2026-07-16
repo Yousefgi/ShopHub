@@ -2,6 +2,7 @@ import MainLayout from "../../layouts/MainLayout";
 import HomePage from "../../features/home/pages/HomePage";
 import ProductsPage from "../../features/products/pages/ProductsPage";
 import ProductDetailsPage from "../../features/products/pages/ProductDetailsPage";
+import CartPage from "../../features/cart/pages/CartPage";
 export const routes = [
   {
     path: "/",
@@ -16,8 +17,12 @@ export const routes = [
         element: <ProductsPage />,
       },
       {
-        path: "/products/:id",
+        path: "products/:id",
         element: <ProductDetailsPage />,
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
       },
     ],
   },
