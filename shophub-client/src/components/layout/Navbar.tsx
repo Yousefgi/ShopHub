@@ -54,6 +54,20 @@ function Navbar() {
                   Products
                 </NavLink>
               </li>
+              {isAuthenticated && (
+                <li>
+                  <NavLink
+                    to="/orders"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-semibold text-blue-600"
+                        : "text-gray-600 transition-colors hover:text-blue-600"
+                    }
+                  >
+                    My Orders
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </nav>
 
@@ -80,34 +94,32 @@ function Navbar() {
               )}
             </Link>
 
-            <button
-              className="rounded-full p-2 transition-colors hover:bg-slate-100"
-              aria-label="User"
-            >
-              {isAuthenticated ? (
-                <div className="flex items-center gap-3">
-                  <div className="text-right">
-                    <p className="text-sm font-semibold text-slate-900">
-                      {user?.fullName}
-                    </p>
+            {isAuthenticated ? (
+              <div className="flex items-center gap-3">
+                <div className="text-right">
+                  <p className="text-sm font-semibold text-slate-900">
+                    {user?.fullName}
+                  </p>
 
-                    <p className="text-xs text-slate-500">{user?.role}</p>
-                  </div>
-
-                  <button
-                    onClick={logout}
-                    className="rounded-lg px-3 py-2 text-sm text-red-500 hover:bg-red-50"
-                  >
-                    Logout
-                  </button>
+                  <p className="text-xs text-slate-500">{user?.role}</p>
                 </div>
-              ) : (
-                <Link to="/login" className="flex items-center gap-2">
-                  <User size={22} />
-                  Login
-                </Link>
-              )}
-            </button>
+
+                <button
+                  onClick={logout}
+                  className="rounded-lg px-3 py-2 text-sm text-red-500 hover:bg-red-50"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center gap-2 rounded-full p-2 hover:bg-slate-100"
+              >
+                <User size={22} />
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </Container>

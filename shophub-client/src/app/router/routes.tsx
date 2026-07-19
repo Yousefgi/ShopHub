@@ -7,6 +7,8 @@ import LoginPage from "../../features/auth/pages/LoginPage";
 import AuthLayout from "../../layouts/AuthLayout";
 import RegisterPage from "../../features/auth/pages/RegisterPage";
 import CheckoutPage from "../../features/checkout/pages/CheckoutPage";
+import MyOrdersPage from "../../features/orders/pages/MyOrdersPage";
+import OrderDetailsPage from "../../features/orders/pages/OrderDetailsPage";
 export const routes = [
   {
     path: "/",
@@ -31,6 +33,14 @@ export const routes = [
       {
         path: "checkout",
         element: <CheckoutPage />,
+      },
+      {
+        path: "orders",
+        element: <MyOrdersPage />,
+      },
+      {
+        path: "orders/:id",
+        element: <OrderDetailsPage />,
       },
     ],
   },
