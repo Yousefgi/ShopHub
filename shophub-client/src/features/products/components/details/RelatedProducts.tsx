@@ -3,13 +3,14 @@ import ProductCard from "../../../../components/product/ProductCard";
 import { useProducts } from "../../../../hooks/useProducts";
 
 interface RelatedProductsProps {
-  brand: string;
+  category: string;
+
   currentProductId: number;
 }
 
-function RelatedProducts({ brand, currentProductId }: RelatedProductsProps) {
+function RelatedProducts({ category, currentProductId }: RelatedProductsProps) {
   const { data, isLoading } = useProducts({
-    brand,
+    category,
     pageSize: 4,
   });
 

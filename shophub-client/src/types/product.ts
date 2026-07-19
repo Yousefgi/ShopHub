@@ -6,6 +6,8 @@ export interface Product {
   finalPrice: number;
   imageUrl: string | null;
   categoryName: string;
+  brand: string;
+  stockQuantity: number;
 }
 
 export interface PaginatedResponse<T> {
@@ -18,7 +20,7 @@ export interface PaginatedResponse<T> {
 
 export interface ProductQueryParams {
   search?: string;
-  brand?: string;
+  category?: string;
   sortBy?: string;
   desc?: boolean;
   page?: number;

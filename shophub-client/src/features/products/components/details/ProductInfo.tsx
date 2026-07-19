@@ -16,6 +16,7 @@ interface ProductInfoProps {
 }
 
 function ProductInfo({ product }: ProductInfoProps) {
+  console.log(product);
   const [quantity, setQuantity] = useState(1);
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -88,7 +89,9 @@ function ProductInfo({ product }: ProductInfoProps) {
         <QuantitySelector
           quantity={quantity}
           onDecrease={() => setQuantity((q) => Math.max(1, q - 1))}
-          onIncrease={() => setQuantity((q) => q + 1)}
+          onIncrease={() =>
+            setQuantity((q) => Math.min(product.stockQuantity, q + 1))
+          }
         />
       </div>
       <p className="mt-4 text-sm text-slate-500">

@@ -3,12 +3,16 @@ import { Search, ShoppingCart, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../features/cart/store/cart.store";
 import Container from "../ui/Container";
-
+import { useAuthStore } from "../../features/auth/store/auth.store";
 function Navbar() {
   const items = useCartStore((state) => state.items);
 
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
   const badgeCount = totalItems > 99 ? "99+" : totalItems;
+
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   return (
     <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur">
       <Container>
@@ -80,7 +84,29 @@ function Navbar() {
               className="rounded-full p-2 transition-colors hover:bg-slate-100"
               aria-label="User"
             >
-              <User size={20} />
+              {isAuthenticated ? (
+                <div className="flex items-center gap-3">
+                  <div className="text-right">
+                    <p className="text-sm font-semibold text-slate-900">
+                      {user?.fullName}
+                    </p>
+
+                    <p className="text-xs text-slate-500">{user?.role}</p>
+                  </div>
+
+                  <button
+                    onClick={logout}
+                    className="rounded-lg px-3 py-2 text-sm text-red-500 hover:bg-red-50"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to="/login" className="flex items-center gap-2">
+                  <User size={22} />
+                  Login
+                </Link>
+              )}
             </button>
           </div>
         </div>

@@ -4,8 +4,10 @@ import { Trash2 } from "lucide-react";
 import { useCartStore } from "../store/cart.store";
 import { useState } from "react";
 import ConfirmDialog from "../../../components/ui/ConfirmDialog";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 function CartSummary() {
+  const navigate = useNavigate();
   const totalItems = useCartStore((state) => state.getTotalItems());
   const totalPrice = useCartStore((state) => state.getTotalPrice());
   const clearCart = useCartStore((state) => state.clearCart);
@@ -50,7 +52,12 @@ function CartSummary() {
         </div>
       </div>
 
-      <Button className="mt-8 w-full py-3">Proceed to Checkout</Button>
+      <Button
+        onClick={() => navigate("/checkout")}
+        className="mt-8 w-full py-3"
+      >
+        Proceed to Checkout
+      </Button>
       <Button
         variant="danger"
 

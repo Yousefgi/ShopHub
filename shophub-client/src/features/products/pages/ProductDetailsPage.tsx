@@ -50,7 +50,10 @@ function ProductDetailsPage() {
 
           <ProductInfo product={product} />
         </div>
-        <RelatedProducts brand={product.brand} currentProductId={product.id} />
+        <RelatedProducts
+          category={product.categoryName}
+          currentProductId={product.id}
+        />
       </Container>
     </section>
   );

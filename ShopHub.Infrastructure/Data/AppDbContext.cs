@@ -39,5 +39,11 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<OrderItem>()
             .Property(i => i.UnitPrice)
             .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Order>()
+            .HasOne(o => o.User)
+            .WithMany(u => u.Orders)
+            .HasForeignKey(o => o.UserId)
+            .OnDelete(DeleteBehavior.Restrict);    
     }
 }

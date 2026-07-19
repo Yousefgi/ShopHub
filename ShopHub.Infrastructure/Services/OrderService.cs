@@ -4,7 +4,7 @@ using ShopHub.Application.Mappings;
 using ShopHub.Application.Repositories.Interfaces;
 using ShopHub.Application.Services.Interfaces;
 using ShopHub.Domain.Entities;
-
+using System.Security.Claims;
 namespace ShopHub.Infrastructure.Services;
 
 public class OrderService : IOrderService
@@ -28,6 +28,13 @@ public class OrderService : IOrderService
         return orders.Select(OrderMapper.ToDto);
     }
 
+    public async Task<IEnumerable<OrderDto>> GetMyOrdersAsync(int userId)
+{
+    var orders = await _repository.GetByUserIdAsync(userId);
+
+    return orders.Select(OrderMapper.ToDto);
+}
+
 
     public async Task<OrderDto> GetByIdAsync(int id)
     {
@@ -43,10 +50,20 @@ public class OrderService : IOrderService
     }
 
 
-    public async Task<OrderDto> CreateAsync(CreateOrderDto dto)
+    public async Task<OrderDto> CreateAsync(
+    CreateOrderDto dto,
+    int userId)
     {
-        var order = new Order();
+     var order = new Order
+        {
+            UserId = userId,
 
+            ShippingAddress = dto.ShippingAddress,
+
+            PhoneNumber = dto.PhoneNumber,
+
+            PaymentMethod = dto.PaymentMethod
+        };
         foreach (var item in dto.Items)
         {
             var product = await _productRepository.GetByIdAsync(item.ProductId);
@@ -94,8 +111,10 @@ public class OrderService : IOrderService
                $"Order with id {id} was not found.");
 
 
+        order.ShippingAddress = dto.ShippingAddress;
+        order.PhoneNumber = dto.PhoneNumber;
+        order.PaymentMethod = dto.PaymentMethod;
         order.Status = dto.Status;
-
 
         _repository.Update(order);
 
