@@ -10,6 +10,9 @@ import CheckoutPage from "../../features/checkout/pages/CheckoutPage";
 import MyOrdersPage from "../../features/orders/pages/MyOrdersPage";
 import OrderDetailsPage from "../../features/orders/pages/OrderDetailsPage";
 import ProfilePage from "../../features/profile/pages/ProfilePage";
+import AdminLayout from "../../layouts/AdminLayout";
+import DashboardPage from "../../features/admin/pages/DashboardPage";
+import AdminProductsPage from "../../features/admin/pages/AdminProductsPage";
 export const routes = [
   {
     path: "/",
@@ -60,6 +63,20 @@ export const routes = [
       {
         path: "register",
         element: <RegisterPage />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage />,
+      },
+      {
+        path: "products",
+        element: <AdminProductsPage />,
       },
     ],
   },

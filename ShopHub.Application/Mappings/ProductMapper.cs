@@ -22,7 +22,9 @@ public static class ProductMapper
 
         ImageUrl = product.ImageUrl,
 
-        CategoryName = product.Category?.Name ?? ""
+        CategoryName = product.Category?.Name ?? "",
+
+        CategoryId = product.CategoryId,
     };
 }
 

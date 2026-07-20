@@ -8,6 +8,7 @@ export interface Product {
   categoryName: string;
   brand: string;
   stockQuantity: number;
+  categoryId:number;
 }
 
 export interface PaginatedResponse<T> {
@@ -38,4 +39,14 @@ export interface ProductDetails {
   imageUrl: string | null;
   categoryName: string;
   brand: string;
+}
+export interface ProductFormData {
+  name: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  stockQuantity: number;
+  brand: string;
+  imageUrl?: string;
+  categoryId: number;
 }
