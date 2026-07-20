@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 import Container from "../../../components/ui/Container";
 import Button from "../../../components/ui/Button";
-import ProductCard from "../../../components/product/ProductCard";
+
 import ErrorState from "../../../components/ui/ErrorState";
 import EmptyState from "../../../components/ui/EmptyState";
 import { useProducts } from "../../../hooks/useProducts";
 import ProductCardSkeleton from "../../../components/product/ProductCardSkeleton";
-
+import FeaturedProductCard from "./FeaturedProductCard";
 function FeaturedProducts() {
   const { data, isLoading, isError, refetch } = useProducts();
 
@@ -70,7 +70,7 @@ function FeaturedProducts() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <FeaturedProductCard key={product.id} product={product} />
           ))}
         </div>
       </Container>

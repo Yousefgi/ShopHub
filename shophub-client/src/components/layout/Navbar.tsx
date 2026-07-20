@@ -97,9 +97,12 @@ function Navbar() {
             {isAuthenticated ? (
               <div className="flex items-center gap-3">
                 <div className="text-right">
-                  <p className="text-sm font-semibold text-slate-900">
+                  <Link
+                    to="/profile"
+                    className="text-sm font-semibold text-slate-900 hover:text-blue-600"
+                  >
                     {user?.fullName}
-                  </p>
+                  </Link>
 
                   <p className="text-xs text-slate-500">{user?.role}</p>
                 </div>

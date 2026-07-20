@@ -13,7 +13,7 @@ interface AuthStore {
 
   login: (token: string, user: User) => void;
   logout: () => void;
-
+updateUser: (user: User) => void;
   isAuthenticated: boolean;
 }
 
@@ -31,6 +31,11 @@ export const useAuthStore = create<AuthStore>()(
           user,
           isAuthenticated: true,
         }),
+
+        updateUser: (user) =>
+  set({
+    user,
+  }),
 
       logout: () =>
         set({
