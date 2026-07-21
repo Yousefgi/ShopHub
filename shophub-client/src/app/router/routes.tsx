@@ -11,8 +11,10 @@ import MyOrdersPage from "../../features/orders/pages/MyOrdersPage";
 import OrderDetailsPage from "../../features/orders/pages/OrderDetailsPage";
 import ProfilePage from "../../features/profile/pages/ProfilePage";
 import AdminLayout from "../../layouts/AdminLayout";
-import DashboardPage from "../../features/admin/pages/DashboardPage";
-import AdminProductsPage from "../../features/admin/pages/AdminProductsPage";
+import DashboardPage from "../../features/admin/dashboard/pages/DashboardPage";
+import AdminProductsPage from "../../features/admin/product/pages/AdminProductsPage";
+import AdminOrdersPage from "../../features/admin/order/pages/AdminOrdersPage";
+import AdminCategoriesPage from "../../features/admin/categories/pages/AdminCategoriesPage";
 export const routes = [
   {
     path: "/",
@@ -77,6 +79,14 @@ export const routes = [
       {
         path: "products",
         element: <AdminProductsPage />,
+      },
+      {
+        path: "orders",
+        element: <AdminOrdersPage />,
+      },
+      {
+        path: "categories",
+        element: <AdminCategoriesPage />,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { productService } from "../../../services/product.service";
+import { productService } from "../../../../services/product.service";
 
-import type { ProductFormData } from "../../../types/product";
+import type { ProductFormData } from "../../../../types/product";
 import { toast } from "sonner";
 
 

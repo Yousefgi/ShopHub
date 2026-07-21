@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useCategories } from "../../../hooks/useCategories";
-import Button from "../../../components/ui/Button";
-import Input from "../../../components/ui/Input";
+import { useCategories } from "../../../../hooks/useCategories";
+import Button from "../../../../components/ui/Button";
+import Input from "../../../../components/ui/Input";
 import { toast } from "sonner";
-import type { Product } from "../../../types/product";
+import type { Product } from "../../../../types/product";
 import { useCreateProduct, useUpdateProduct } from "../hooks/useAdminProducts";
 
 interface Props {

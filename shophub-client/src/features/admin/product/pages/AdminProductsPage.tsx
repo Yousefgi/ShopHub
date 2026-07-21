@@ -1,13 +1,13 @@
 import { Trash2, Edit } from "lucide-react";
-import type { Product } from "../../../types/product";
-import Button from "../../../components/ui/Button";
-import Card from "../../../components/ui/Card";
+import type { Product } from "../../../../types/product";
+import Button from "../../../../components/ui/Button";
+import Card from "../../../../components/ui/Card";
 import { useDeleteProduct } from "../hooks/useAdminProducts";
 
-import { useProducts } from "../../../hooks/useProducts";
+import { useProducts } from "../../../../hooks/useProducts";
 import { useState } from "react";
 import ProductFormModal from "../components/ProductFormModal";
-import ConfirmDialog from "../../../components/ui/ConfirmDialog";
+import ConfirmDialog from "../../../../components/ui/ConfirmDialog";
 export default function AdminProductsPage() {
   const { data, isLoading } = useProducts();
   const deleteMutation = useDeleteProduct();

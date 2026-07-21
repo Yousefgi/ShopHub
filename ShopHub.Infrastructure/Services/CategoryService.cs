@@ -41,9 +41,10 @@ public class CategoryService : ICategoryService
     public async Task<CategoryDto> CreateAsync(CreateCategoryDto dto)
     {
         var category = new Category
-        {
-            Name = dto.Name
-        };
+{
+    Name = dto.Name,
+    Description = dto.Description
+};
 
 
         await _repository.AddAsync(category);
@@ -64,7 +65,8 @@ public class CategoryService : ICategoryService
 
 
 
-        category.Name = dto.Name;
+       category.Name = dto.Name;
+category.Description = dto.Description;
 
 
         _repository.Update(category);

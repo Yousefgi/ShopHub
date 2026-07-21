@@ -1,10 +1,4 @@
-import {
-  LayoutDashboard,
-  Package,
-  ShoppingCart,
-  Users,
-  Layers,
-} from "lucide-react";
+import { LayoutDashboard, Package, ShoppingCart, Layers } from "lucide-react";
 
 import { NavLink } from "react-router-dom";
 
@@ -28,11 +22,6 @@ const links = [
     name: "Categories",
     path: "/admin/categories",
     icon: Layers,
-  },
-  {
-    name: "Users",
-    path: "/admin/users",
-    icon: Users,
   },
 ];
 
