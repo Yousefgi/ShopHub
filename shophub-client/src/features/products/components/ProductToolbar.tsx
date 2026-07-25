@@ -31,6 +31,7 @@ function ProductToolbar({
         />
 
         <input
+          autoFocus
           type="text"
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}

@@ -4,7 +4,7 @@ using ShopHub.Application.Mappings;
 using ShopHub.Application.Repositories.Interfaces;
 using ShopHub.Application.Services.Interfaces;
 using ShopHub.Domain.Entities;
-using System.Security.Claims;
+
 namespace ShopHub.Infrastructure.Services;
 
 public class OrderService : IOrderService

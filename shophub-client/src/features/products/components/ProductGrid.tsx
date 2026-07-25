@@ -3,7 +3,7 @@ import ProductCardSkeleton from "../../../components/product/ProductCardSkeleton
 
 import ErrorState from "../../../components/ui/ErrorState";
 import EmptyState from "../../../components/ui/EmptyState";
-import Pagination from "../components/Pagination";
+import Pagination from "../../../components/ui/Pagination";
 
 import { useProducts } from "../../../hooks/useProducts";
 

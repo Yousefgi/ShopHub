@@ -2,11 +2,16 @@ import axios from "axios";
 import { useAuthStore } from "../features/auth/store/auth.store";
 
 export const api = axios.create({
-  baseURL: "http://localhost:5146/api",
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
+
+
+// ==========================
+// Request Interceptor
+// ==========================
 
 api.interceptors.request.use(
   (config) => {
@@ -18,7 +23,34 @@ api.interceptors.request.use(
 
     return config;
   },
+
   (error) => {
+    return Promise.reject(error);
+  }
+);
+
+
+// ==========================
+// Response Interceptor
+// ==========================
+
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+
+  (error) => {
+
+    if (error.response?.status === 401) {
+
+      const logout = useAuthStore.getState().logout;
+
+      logout();
+
+      window.location.href = "/login";
+    }
+
+
     return Promise.reject(error);
   }
 );

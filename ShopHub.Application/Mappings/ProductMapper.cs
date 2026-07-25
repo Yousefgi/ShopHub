@@ -48,6 +48,8 @@ public static class ProductMapper
 
         ImageUrl = product.ImageUrl,
 
+        CategoryId = product.CategoryId,
+
         CategoryName = product.Category?.Name ?? ""
     };
 }

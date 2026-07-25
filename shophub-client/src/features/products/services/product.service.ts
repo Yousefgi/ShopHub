@@ -1,4 +1,4 @@
-import { api } from "../api/axios";
+import { api } from "../../../api/axios";
 
 
 import type {
@@ -7,7 +7,7 @@ import type {
   PaginatedResponse,
   ProductQueryParams,
   ProductFormData
-} from "../types/product";
+} from "../../../types/product";
 
 
 async function getProducts(

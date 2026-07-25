@@ -13,6 +13,33 @@ export default function Pagination({
 }: Props) {
   if (totalPages <= 1) return null;
 
+  const pages: (number | "...")[] = [];
+
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i);
+    }
+  } else {
+    pages.push(1);
+
+    if (currentPage > 3) {
+      pages.push("...");
+    }
+
+    const start = Math.max(2, currentPage - 1);
+    const end = Math.min(totalPages - 1, currentPage + 1);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+
+    if (currentPage < totalPages - 2) {
+      pages.push("...");
+    }
+
+    pages.push(totalPages);
+  }
+
   return (
     <div className="mt-8 flex items-center justify-center gap-2">
       <Button
@@ -23,19 +50,21 @@ export default function Pagination({
         Previous
       </Button>
 
-      {Array.from({ length: totalPages }, (_, index) => {
-        const page = index + 1;
-
-        return (
+      {pages.map((page, index) =>
+        page === "..." ? (
+          <span key={index} className="px-2 text-slate-500">
+            ...
+          </span>
+        ) : (
           <Button
             key={page}
-            variant={currentPage === page ? "primary" : "secondary"}
+            variant={page === currentPage ? "primary" : "secondary"}
             onClick={() => onPageChange(page)}
           >
             {page}
           </Button>
-        );
-      })}
+        ),
+      )}
 
       <Button
         variant="secondary"

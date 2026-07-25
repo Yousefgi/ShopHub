@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/Button";
-import { useAuthStore } from "../store/auth.store";
+
 import {
   registerSchema,
   type RegisterFormData,
@@ -16,7 +16,7 @@ export default function RegisterForm() {
   const navigate = useNavigate();
 
   const { mutate, isPending } = useRegister();
-  const login = useAuthStore((state) => state.login);
+
   const {
     register,
     handleSubmit,
@@ -27,14 +27,8 @@ export default function RegisterForm() {
 
   const onSubmit = (data: RegisterFormData) => {
     mutate(data, {
-      onSuccess: (response) => {
-        login(response.token, {
-          fullName: response.fullName,
-          email: response.email,
-          role: response.role,
-        });
-
-        navigate("/");
+      onSuccess: () => {
+        navigate("/login");
       },
     });
   };

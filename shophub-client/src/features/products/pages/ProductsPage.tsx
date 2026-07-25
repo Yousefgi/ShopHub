@@ -1,55 +1,60 @@
 import { useState } from "react";
+
 import Container from "../../../components/ui/Container";
 import ProductToolbar from "../components/ProductToolbar";
 import ProductGrid from "../components/ProductGrid";
 import ProductSidebar from "../components/ProductSidebar";
+
 import { useDebounce } from "../../../hooks/useDebounce";
+import { getSortConfig } from "../../../utils/sort";
 
 function ProductsPage() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
+  const [filters, setFilters] = useState({
+    search: "",
+    category: "",
+    sortBy: "",
+  });
+
   const [page, setPage] = useState(1);
-  const [sortBy, setSortBy] = useState("");
-  const debouncedSearch = useDebounce(search);
-  const sortConfig = (() => {
-    switch (sortBy) {
-      case "name-asc":
-        return { sortBy: "name", desc: false };
 
-      case "name-desc":
-        return { sortBy: "name", desc: true };
+  const debouncedSearch = useDebounce(filters.search);
 
-      case "price-asc":
-        return { sortBy: "price", desc: false };
+  const sortConfig = getSortConfig(filters.sortBy);
 
-      case "price-desc":
-        return { sortBy: "price", desc: true };
-
-      default:
-        return {
-          sortBy: "",
-          desc: false,
-        };
-    }
-  })();
   const handleSearchChange = (value: string) => {
-    setSearch(value);
+    setFilters((prev) => ({
+      ...prev,
+      search: value,
+    }));
+
     setPage(1);
   };
 
   const handleCategoryChange = (value: string) => {
-    setCategory(value);
+    setFilters((prev) => ({
+      ...prev,
+      category: value,
+    }));
+
     setPage(1);
   };
+
   const handleSortChange = (value: string) => {
-    setSortBy(value);
+    setFilters((prev) => ({
+      ...prev,
+      sortBy: value,
+    }));
+
     setPage(1);
   };
 
   const handleClearFilters = () => {
-    setSearch("");
-    setCategory("");
-    setSortBy("");
+    setFilters({
+      search: "",
+      category: "",
+      sortBy: "",
+    });
+
     setPage(1);
   };
 
@@ -57,22 +62,23 @@ function ProductsPage() {
     <section className="py-10">
       <Container>
         <ProductToolbar
-          search={search}
+          search={filters.search}
           onSearchChange={handleSearchChange}
-          sortBy={sortBy}
+          sortBy={filters.sortBy}
           onSortChange={handleSortChange}
           onClearFilters={handleClearFilters}
         />
 
         <div className="grid gap-8 lg:grid-cols-4">
           <ProductSidebar
-            selectedCategory={category}
+            selectedCategory={filters.category}
             onCategoryChange={handleCategoryChange}
           />
+
           <div className="lg:col-span-3">
             <ProductGrid
               search={debouncedSearch}
-              category={category}
+              category={filters.category}
               sortBy={sortConfig.sortBy}
               desc={sortConfig.desc}
               page={page}

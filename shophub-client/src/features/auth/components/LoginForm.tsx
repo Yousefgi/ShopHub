@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -6,7 +6,7 @@ import FormField from "../../../components/ui/FormField";
 import Input from "../../../components/ui/Input";
 import PasswordInput from "../../../components/ui/PasswordInput";
 import Button from "../../../components/ui/Button";
-
+import { isAdmin } from "../../../utils/role";
 import { useLogin } from "../hooks/useLogin";
 import { useAuthStore } from "../store/auth.store";
 import { loginSchema, type LoginFormData } from "../schemas/login.schema";
@@ -15,7 +15,7 @@ export default function LoginForm() {
   const { mutate, isPending, error } = useLogin();
 
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -24,21 +24,25 @@ export default function LoginForm() {
     resolver: zodResolver(loginSchema),
   });
 
-  const login = useAuthStore((state) => state.login);
-
   const onSubmit = (data: LoginFormData) => {
     mutate(data, {
       onSuccess: (response) => {
-        login(response.token, {
-          fullName: response.fullName,
-          email: response.email,
-          role: response.role,
-        });
+        if (isAdmin(response.role)) {
+          navigate("/admin/dashboard");
+        } else {
+          navigate("/");
+        }
       },
     });
   };
 
   if (isAuthenticated) {
+    const user = useAuthStore.getState().user;
+
+    if (isAdmin(user?.role)) {
+      return <Navigate to="/admin/dashboard" replace />;
+    }
+
     return <Navigate to="/" replace />;
   }
 

@@ -39,6 +39,7 @@ export interface ProductDetails {
   imageUrl: string | null;
   categoryName: string;
   brand: string;
+  categoryId: number;
 }
 export interface ProductFormData {
   name: string;

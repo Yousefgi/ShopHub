@@ -14,7 +14,12 @@ const icons = [
 ];
 
 function CategoriesSection() {
-  const { data: categories, isLoading, isError, refetch } = useCategories();
+  const {
+    data: categories = [],
+    isLoading,
+    isError,
+    refetch,
+  } = useCategories();
 
   if (isLoading) {
     return (
@@ -41,7 +46,7 @@ function CategoriesSection() {
       </section>
     );
   }
-  if (isError || !categories) {
+  if (isError) {
     return (
       <section className="py-24">
         <Container>
