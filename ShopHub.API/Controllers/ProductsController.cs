@@ -2,9 +2,9 @@
 using ShopHub.Application.DTOs.Common;
 using ShopHub.Application.DTOs.Product;
 using ShopHub.Application.Services.Interfaces;
-
+using Microsoft.AspNetCore.Authorization;
 namespace ShopHub.API.Controllers;
-
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ProductsController : ControllerBase
@@ -36,7 +36,8 @@ public class ProductsController : ControllerBase
     }
 
 
-    [HttpPost]
+    [Authorize(Roles = "Admin")]
+[HttpPost]
     public async Task<ActionResult<ProductDto>> Create(
         CreateProductDto dto)
     {
@@ -49,7 +50,8 @@ public class ProductsController : ControllerBase
     }
 
 
-    [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
+[HttpPut("{id}")]
     public async Task<ActionResult<ProductDto>> Update(
         int id,
         UpdateProductDto dto)
@@ -60,7 +62,8 @@ public class ProductsController : ControllerBase
     }
 
 
-    [HttpDelete("{id}")]
+   [Authorize(Roles = "Admin")]
+[HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
         await _productService.DeleteAsync(id);

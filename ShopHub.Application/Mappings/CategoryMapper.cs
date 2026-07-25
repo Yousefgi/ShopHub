@@ -10,17 +10,20 @@ public static class CategoryMapper
         return new CategoryDto
         {
             Id = category.Id,
-            Name = category.Name
+            Name = category.Name,
+            Description = category.Description,
+            ProductsCount = category.Products.Count
         };
     }
-
 
     public static CategoryDetailsDto ToDetailsDto(Category category)
     {
         return new CategoryDetailsDto
         {
             Id = category.Id,
-            Name = category.Name
+            Name = category.Name,
+            Description = category.Description,
+            ProductsCount = category.Products.Count
         };
     }
 }

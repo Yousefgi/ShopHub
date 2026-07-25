@@ -5,33 +5,54 @@ namespace ShopHub.Application.Mappings;
 
 public static class ProductMapper
 {
-    public static ProductDto ToDto(Product product)
+   public static ProductDto ToDto(Product product)
+{
+    return new ProductDto
     {
-        return new ProductDto
-        {
-            Id = product.Id,
-            Name = product.Name,
-            Price = product.Price,
-            DiscountPercentage = product.DiscountPercentage,
-            FinalPrice = product.Price - (product.Price * (product.DiscountPercentage ?? 0) / 100),
-            ImageUrl = product.ImageUrl,
-            CategoryName = product.Category?.Name ?? ""
-        };
-    }
+        Id = product.Id,
+        Name = product.Name,
+        Price = product.Price,
+        DiscountPercentage = product.DiscountPercentage,
 
-    public static ProductDetailsDto ToDetailsDto(Product product)
+        FinalPrice =
+            product.Price -
+            (product.Price * (product.DiscountPercentage ?? 0) / 100),
+
+        StockQuantity = product.StockQuantity,
+
+        ImageUrl = product.ImageUrl,
+
+        CategoryName = product.Category?.Name ?? "",
+
+        CategoryId = product.CategoryId,
+    };
+}
+
+  public static ProductDetailsDto ToDetailsDto(Product product)
+{
+    return new ProductDetailsDto
     {
-        return new ProductDetailsDto
-        {
-            Id = product.Id,
-            Name = product.Name,
-            Price = product.Price,
-            DiscountPercentage = product.DiscountPercentage,
-            FinalPrice = product.Price - (product.Price * (product.DiscountPercentage ?? 0) / 100),
-            ImageUrl = product.ImageUrl,
-            CategoryName = product.Category?.Name ?? ""
-        };
-    }
+        Id = product.Id,
+        Name = product.Name,
+        Description = product.Description,
+        Price = product.Price,
+        DiscountPercentage = product.DiscountPercentage,
+
+        FinalPrice =
+            product.Price -
+            (product.Price * (product.DiscountPercentage ?? 0) / 100),
+
+        StockQuantity = product.StockQuantity,
+
+        Brand = product.Brand,
+
+        ImageUrl = product.ImageUrl,
+
+        CategoryId = product.CategoryId,
+
+        CategoryName = product.Category?.Name ?? ""
+    };
+}
 
     public static Product ToEntity(CreateProductDto dto)
     {

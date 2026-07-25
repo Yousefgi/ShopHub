@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopHub.Application.DTOs.Category;
 using ShopHub.Application.Services.Interfaces;
-
+using Microsoft.AspNetCore.Authorization;
 namespace ShopHub.API.Controllers;
-
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class CategoriesController : ControllerBase
@@ -33,7 +33,7 @@ public class CategoriesController : ControllerBase
         return Ok(category);
     }
 
-
+[Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> Create(CreateCategoryDto dto)
     {
@@ -45,7 +45,7 @@ public class CategoriesController : ControllerBase
             category);
     }
 
-
+[Authorize(Roles = "Admin")]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(
         int id,
@@ -56,7 +56,7 @@ public class CategoriesController : ControllerBase
         return Ok(category);
     }
 
-
+[Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {

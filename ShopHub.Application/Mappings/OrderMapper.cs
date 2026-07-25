@@ -11,8 +11,13 @@ public static class OrderMapper
         {
             Id = order.Id,
             OrderDate = order.OrderDate,
+            UserId = order.UserId,
             Status = order.Status,
             TotalAmount = order.TotalAmount,
+
+            ShippingAddress = order.ShippingAddress,
+            PhoneNumber = order.PhoneNumber,
+            PaymentMethod = order.PaymentMethod,
 
             Items = order.OrderItems.Select(i => new OrderItemDto
             {
@@ -32,6 +37,10 @@ public static class OrderMapper
             OrderDate = order.OrderDate,
             Status = order.Status,
             TotalAmount = order.TotalAmount,
+
+            ShippingAddress = order.ShippingAddress,
+            PhoneNumber = order.PhoneNumber,
+            PaymentMethod = order.PaymentMethod,
 
             Items = order.OrderItems.Select(i => new OrderItemDto
             {

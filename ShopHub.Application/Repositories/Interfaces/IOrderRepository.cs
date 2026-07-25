@@ -5,7 +5,11 @@ namespace ShopHub.Application.Repositories.Interfaces;
 public interface IOrderRepository
 {
     Task<List<Order>> GetAllAsync();
+
     Task<Order?> GetByIdAsync(int id);
+
+    Task<List<Order>> GetByUserIdAsync(int userId);
+
     Task AddAsync(Order order);
 
     void Update(Order order);

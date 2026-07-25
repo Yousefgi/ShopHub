@@ -12,5 +12,11 @@ public class OrderDetailsDto
 
     public OrderStatus Status { get; set; }
 
+    public string ShippingAddress { get; set; } = string.Empty;
+
+    public string PhoneNumber { get; set; } = string.Empty;
+
+    public string PaymentMethod { get; set; } = string.Empty;
+
     public List<OrderItemDto> Items { get; set; } = new();
 }
