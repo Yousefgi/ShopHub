@@ -54,24 +54,30 @@ public static class ProductMapper
     };
 }
 
-    public static Product ToEntity(CreateProductDto dto)
+   public static Product ToEntity(CreateProductDto dto)
+{
+    return new Product
     {
-        return new Product
-        {
-            Name = dto.Name,
-            Price = dto.Price,
-            DiscountPercentage = dto.DiscountPercentage,
-            ImageUrl = dto.ImageUrl,
-            CategoryId = dto.CategoryId
-        };
-    }
+        Name = dto.Name,
+        Description = dto.Description,
+        Price = dto.Price,
+        DiscountPercentage = dto.DiscountPercentage,
+        StockQuantity = dto.StockQuantity,
+        Brand = dto.Brand,
+        ImageUrl = dto.ImageUrl,
+        CategoryId = dto.CategoryId
+    };
+}
 
-    public static void UpdateEntity(Product product, UpdateProductDto dto)
-    {
-        product.Name = dto.Name;
-        product.Price = dto.Price;
-        product.DiscountPercentage = dto.DiscountPercentage;
-        product.ImageUrl = dto.ImageUrl;
-        product.CategoryId = dto.CategoryId;
-    }
+   public static void UpdateEntity(Product product, UpdateProductDto dto)
+{
+    product.Name = dto.Name;
+    product.Description = dto.Description;
+    product.Price = dto.Price;
+    product.DiscountPercentage = dto.DiscountPercentage;
+    product.StockQuantity = dto.StockQuantity;
+    product.Brand = dto.Brand;
+    product.ImageUrl = dto.ImageUrl;
+    product.CategoryId = dto.CategoryId;
+}
 }
