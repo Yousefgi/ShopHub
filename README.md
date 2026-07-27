@@ -142,11 +142,11 @@ ShopHub
 | ------------------------------------ | ------------------------------------- |
 | ![](assets/screenshots/checkout.png) | ![](assets/screenshots/dashboard.png) |
 
-| Admin Products                             | Admin Categories                             |
+| Admin Products                             | Admin orders                             |
 | ------------------------------------------ | -------------------------------------------- |
 | ![](assets/screenshots/admin-products.png) | ![](assets/screenshots/admin-categories.png) |
 
-| Admin Orders                             |
+| Admin Categories                             |
 | ---------------------------------------- |
 | ![](assets/screenshots/admin-orders.png) |
 
