@@ -69,12 +69,31 @@ The backend follows **Clean Architecture**:
 
 ```text
 ShopHub
+
 │
 ├── ShopHub.API
+│ └── Controllers
+│
 ├── ShopHub.Application
+│ ├── DTOs
+│ ├── Services
+│ ├── Interfaces
+│ └── Mappings
+│
 ├── ShopHub.Domain
+│ └── Entities
+│
 ├── ShopHub.Infrastructure
+│ ├── Database
+│ ├── Repositories
+│ └── Services
+│
 └── shophub-client
+├── Features
+├── Components
+├── Hooks
+├── Store
+└── Utils
 ```
 
 ---
@@ -83,13 +102,18 @@ ShopHub
 
 ## Backend
 
-- ASP.NET Core 10
+- ASP.NET Core 10 Web API
 - Entity Framework Core
-- SQL Server
+- PostgreSQL
 - Clean Architecture
 - Repository Pattern
+- Service Layer
+- Dependency Injection
 - JWT Authentication
+- Role-Based Authorization
 - FluentValidation
+- Swagger
+
 
 ## Frontend
 
@@ -130,12 +154,45 @@ ShopHub
 
 # 💾 Database
 
-- SQL Server
+Database:
+
+- PostgreSQL
 - Entity Framework Core Migrations
+- Code First Approach
+
+
+Main Entities:
+
+```
+User
+Category
+Product
+Order
+OrderItem
+```
 
 ---
 
-# 🚀 Getting Started
+# 🚀 Deployment
+
+## Backend Deployment
+
+Backend is deployed using:
+
+- Docker
+- Render
+- PostgreSQL
+
+
+## Frontend Deployment
+
+Frontend is deployed using:
+
+- Vercel
+
+---
+
+# 🚀 Running Locally
 
 ## Backend
 
@@ -155,7 +212,6 @@ Backend runs on:
 https://localhost:5146
 ```
 
----
 
 ## Frontend
 
@@ -177,33 +233,35 @@ http://localhost:5173
 
 # 🔐 Authentication
 
-- JWT Authentication
-- Role-based Authorization
+Implemented:
+
+- JWT Token Authentication
+- Role-Based Authorization
 - Customer & Admin Roles
-- Protected Routes
+- Protected API Endpoints
+- Protected Frontend Routes
 
 ---
 
-# 📁 Project Structure
+# 📁 Frontend Structure
 
-```text
-ShopHub
+```
+src
+
+├── app
+├── components
+├── features
+│   ├── auth
+│   ├── products
+│   ├── cart
+│   ├── orders
+│   └── admin
 │
-├── ShopHub.API
-├── ShopHub.Application
-├── ShopHub.Domain
-├── ShopHub.Infrastructure
-│
-├── shophub-client
-│   ├── features
-│   ├── components
-│   ├── hooks
-│   ├── layouts
-│   ├── app
-│   └── utils
-│
-└── assets
-    └── screenshots
+├── hooks
+├── layouts
+├── services
+├── store
+└── types
 ```
 
 ---
@@ -212,11 +270,10 @@ ShopHub
 
 - Online Payment Integration
 - Product Reviews
-- Wishlist
+- Wishlist System
 - Email Notifications
-- Image Upload
-- Dashboard Analytics
-- Docker Support
+- Image Upload System
+- Advanced Analytics
 - CI/CD Pipeline
 
 ---
@@ -228,3 +285,9 @@ ShopHub
 Computer Engineer
 
 Frontend & ASP.NET Core Developer
+
+GitHub:
+https://github.com/Yousefgi
+
+LinkedIn:
+linkedin.com/in/yousef-salman-dev
