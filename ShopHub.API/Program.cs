@@ -104,13 +104,13 @@ using (var scope = app.Services.CreateScope())
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 // HTTP pipeline
+app.UseSwagger();
+app.UseSwaggerUI();
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseHttpsRedirection();
 }
-
-app.UseHttpsRedirection();
 
 app.UseCors("Frontend");
 
