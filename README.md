@@ -1,8 +1,27 @@
 # 🛍️ ShopHub
 
-A modern **Full-Stack E-Commerce Platform** built with **ASP.NET Core 10** and **React 19** following **Clean Architecture** principles.
+![ASP.NET Core](https://img.shields.io/badge/Backend-ASP.NET%20Core%2010-blue)
+![React](https://img.shields.io/badge/Frontend-React%2019-61DAFB)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791)
+![Deployment](https://img.shields.io/badge/Deployment-Render%20%7C%20Vercel-success)
 
-ShopHub provides a complete shopping experience for customers and a powerful administration dashboard for managing products, categories, and orders.
+A modern **Full-Stack E-Commerce Platform** built with **ASP.NET Core 10 Web API** and **React 19** following **Clean Architecture principles**.
+
+ShopHub provides a complete shopping experience for customers and a management system for administrators with authentication, product management, cart, checkout, orders, and inventory control.
+
+---
+
+# 🌐 Live Demo
+
+Frontend:
+https://shophub-client.vercel.app
+
+Backend API:
+https://shophub-iurs.onrender.com
+
+Swagger Documentation:
+https://shophub-iurs.onrender.com/swagger
 
 ---
 
@@ -12,31 +31,41 @@ ShopHub provides a complete shopping experience for customers and a powerful adm
 
 - JWT Authentication
 - Register & Login
+- Protected Routes
 - Product Catalog
-- Product Details
-- Search Products
-- Filter by Category
+- Product Search
+- Category Filtering
 - Sorting
+- Product Details
 - Shopping Cart
 - Checkout
+- Order Creation
 - Order History
 - User Profile
 
----
 
 ## 👨‍💼 Admin
 
-- Dashboard
-- Products Management
-- Categories Management
-- Orders Management
+- Admin Dashboard
+- Product Management
+- Category Management
+- Order Management
 - Store Statistics
+
+
+## 📦 Inventory System
+
+- Stock Quantity Management
+- Stock Availability Validation
+- Automatic Stock Reduction After Checkout
+- Prevent Ordering More Than Available Quantity
+
 
 ---
 
 # 🏗 Architecture
 
-Backend follows **Clean Architecture**
+The backend follows **Clean Architecture**:
 
 ```text
 ShopHub
