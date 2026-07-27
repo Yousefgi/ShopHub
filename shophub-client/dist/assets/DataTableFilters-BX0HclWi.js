@@ -1,0 +1,15 @@
+import{i as e,r as t}from"./middleware-BBwTCBZ0.js";import{c as n,d as r}from"./index-CzwUDcdT.js";import{t as i}from"./Input-BF3p4hj0.js";var a=r(`funnel`,[[`path`,{d:`M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z`,key:`sc7q7i`}]]),o=r(`pencil`,[[`path`,{d:`M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z`,key:`1a8usu`}],[`path`,{d:`m15 5 4 4`,key:`1mk7zo`}]]),s=t(),c=e();function l(e){let t=(0,s.c)(10),{title:n,description:r,action:i}=e,a;t[0]===n?a=t[1]:(a=(0,c.jsx)(`h1`,{className:`text-3xl font-bold text-slate-900`,children:n}),t[0]=n,t[1]=a);let o;t[2]===r?o=t[3]:(o=(0,c.jsx)(`p`,{className:`mt-2 text-slate-500`,children:r}),t[2]=r,t[3]=o);let l;t[4]!==a||t[5]!==o?(l=(0,c.jsxs)(`div`,{children:[a,o]}),t[4]=a,t[5]=o,t[6]=l):l=t[6];let u;return t[7]!==i||t[8]!==l?(u=(0,c.jsxs)(`div`,{className:`mb-8 flex items-center justify-between`,children:[l,i]}),t[7]=i,t[8]=l,t[9]=u):u=t[9],u}function u(e){let t=(0,s.c)(16),{search:r,onSearchChange:o,placeholder:l,status:u,statusOptions:f,onStatusChange:p}=e,m=l===void 0?`Search...`:l,h=u===void 0?``:u,g;t[0]===f?g=t[1]:(g=f===void 0?[]:f,t[0]=f,t[1]=g);let _=g,v;t[2]===Symbol.for(`react.memo_cache_sentinel`)?(v=(0,c.jsx)(n,{size:18,className:`absolute left-4 top-1/2 -translate-y-1/2 text-slate-400`}),t[2]=v):v=t[2];let y;t[3]===o?y=t[4]:(y=e=>o(e.target.value),t[3]=o,t[4]=y);let b;t[5]!==m||t[6]!==r||t[7]!==y?(b=(0,c.jsxs)(`div`,{className:`relative flex-1`,children:[v,(0,c.jsx)(i,{value:r,onChange:y,placeholder:m,className:`pl-11`})]}),t[5]=m,t[6]=r,t[7]=y,t[8]=b):b=t[8];let x;t[9]!==p||t[10]!==h||t[11]!==_?(x=_.length>0&&p&&(0,c.jsxs)(`div`,{className:`relative min-w-55`,children:[(0,c.jsx)(a,{size:18,className:`absolute left-4 top-1/2 -translate-y-1/2 text-slate-400`}),(0,c.jsxs)(`select`,{value:h,onChange:e=>p(e.target.value),className:`\r
+                h-12\r
+                w-full\r
+                rounded-xl\r
+                border\r
+                border-slate-300\r
+                bg-white\r
+                pl-11\r
+                pr-4\r
+                outline-none\r
+                transition\r
+                focus:border-blue-500\r
+                focus:ring-4\r
+                focus:ring-blue-100\r
+              `,children:[(0,c.jsx)(`option`,{value:``,children:`All`}),_.map(d)]})]}),t[9]=p,t[10]=h,t[11]=_,t[12]=x):x=t[12];let S;return t[13]!==b||t[14]!==x?(S=(0,c.jsx)(`div`,{className:`mb-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm`,children:(0,c.jsxs)(`div`,{className:`flex flex-col gap-4 lg:flex-row lg:items-center`,children:[b,x]})}),t[13]=b,t[14]=x,t[15]=S):S=t[15],S}function d(e){return(0,c.jsx)(`option`,{value:e,children:e},e)}export{l as n,o as r,u as t};

@@ -1,0 +1,1 @@
+import{t as e}from"./axios-BKSHAQS4.js";var t={login:async t=>(await e.post(`/auth/login`,t)).data,register:async t=>(await e.post(`/auth/register`,t)).data},n=`/assets/shopping-BoxyHVqz.svg`;export{t as n,n as t};

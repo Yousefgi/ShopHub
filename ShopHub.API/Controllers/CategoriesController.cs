@@ -3,7 +3,7 @@ using ShopHub.Application.DTOs.Category;
 using ShopHub.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 namespace ShopHub.API.Controllers;
-[Authorize]
+
 [ApiController]
 [Route("api/[controller]")]
 public class CategoriesController : ControllerBase
@@ -15,7 +15,7 @@ public class CategoriesController : ControllerBase
         _service = service;
     }
 
-
+[AllowAnonymous]
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -24,7 +24,7 @@ public class CategoriesController : ControllerBase
         return Ok(categories);
     }
 
-
+[AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

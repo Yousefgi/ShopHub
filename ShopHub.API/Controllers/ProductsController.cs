@@ -4,7 +4,7 @@ using ShopHub.Application.DTOs.Product;
 using ShopHub.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 namespace ShopHub.API.Controllers;
-[Authorize]
+
 [ApiController]
 [Route("api/[controller]")]
 public class ProductsController : ControllerBase
@@ -16,7 +16,7 @@ public class ProductsController : ControllerBase
         _productService = productService;
     }
 
-
+[AllowAnonymous]
     [HttpGet]
     public async Task<ActionResult<PagedResult<ProductDto>>> GetAll(
      [FromQuery] ProductQueryParameters query)
@@ -26,7 +26,7 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
-
+[AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<ActionResult<ProductDetailsDto>> GetById(int id)
     {

@@ -1,0 +1,1 @@
+import{r as e}from"./middleware-BBwTCBZ0.js";import{t}from"./useQuery-BzItoHw1.js";import{t as n}from"./order.service-B3XAyLWo.js";var r=e();function i(){let e=(0,r.c)(1),i;return e[0]===Symbol.for(`react.memo_cache_sentinel`)?(i={queryKey:[`my-orders`],queryFn:n.getMyOrders},e[0]=i):i=e[0],t(i)}export{i as t};

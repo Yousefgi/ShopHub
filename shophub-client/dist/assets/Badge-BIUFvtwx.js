@@ -1,0 +1,1 @@
+import{i as e,r as t}from"./middleware-BBwTCBZ0.js";var n=t(),r=e();function i(e){let t=(0,n.c)(3),{children:i,className:a}=e,o=`inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700 ${a===void 0?``:a}`,s;return t[0]!==i||t[1]!==o?(s=(0,r.jsx)(`span`,{className:o,children:i}),t[0]=i,t[1]=o,t[2]=s):s=t[2],s}export{i as t};

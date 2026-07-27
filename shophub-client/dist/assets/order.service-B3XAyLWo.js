@@ -1,0 +1,1 @@
+import{t as e}from"./axios-BKSHAQS4.js";var t={getMyOrders:async()=>(await e.get(`/orders/my-orders`)).data,getOrderById:async t=>(await e.get(`/orders/${t}`)).data};export{t};

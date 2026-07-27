@@ -1,0 +1,1 @@
+var e=`/assets/placeholder-CsoEY02C.jpg`;export{e as t};
