@@ -2,11 +2,8 @@ import { useMutation } from "@tanstack/react-query";
 
 import { authService } from "../services/auth.service";
 import { useAuthStore } from "../store/auth.store";
-
-import type {
-  AuthResponse,
-  LoginRequest,
-} from "../types/auth";
+import { useCartStore } from "../../cart/store/cart.store";
+import type { AuthResponse, LoginRequest } from "../types/auth";
 
 export const useLogin = () => {
   const login = useAuthStore((state) => state.login);
@@ -15,6 +12,8 @@ export const useLogin = () => {
     mutationFn: authService.login,
 
     onSuccess: (data) => {
+      useCartStore.getState().clearCart();
+
       login(data.token, {
         fullName: data.fullName,
         email: data.email,
